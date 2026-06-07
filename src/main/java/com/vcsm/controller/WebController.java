@@ -26,10 +26,16 @@ public class WebController {
     @Autowired
     private OmnidimService omnidimService;
 
+    @GetMapping("/landing")
+    public String landing() {
+        return "landing";
+    }
+
     @GetMapping("/")
     public String dashboard(Model model) {
 
         Map<String, Long> stats = complaintService.getComplaintStats();
+
 
         if (stats == null) {
             stats = new HashMap<>();
