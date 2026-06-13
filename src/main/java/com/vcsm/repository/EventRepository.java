@@ -8,6 +8,7 @@ import java.util.List;
 public interface EventRepository extends JpaRepository<Event, Long> {
 
     List<Event> findByActiveTrue();
+    List<Event> findByCategoryAndActiveTrue(Event.EventCategory category);
 
     List<Event> findByEventDateAfterAndActiveTrue(LocalDateTime dateTime);
 }
